@@ -1,0 +1,17 @@
+{
+  "platforms": [
+    "apple",
+    "android",
+    "web"
+  ],
+  "apple": {
+    "modules": [
+      "SmaraNativeModule"
+    ]
+  },
+  "android": {
+    "modules": [
+      "expo.modules.smaranative.SmaraNativeModule"
+    ]
+  }
+}
