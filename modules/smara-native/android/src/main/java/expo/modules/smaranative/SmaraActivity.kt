@@ -9,6 +9,8 @@ import android.os.Bundle
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.widget.Toast
+import android.media.AudioManager
+import android.media.ToneGenerator
 
 class SmaraActivity : Activity() {
   override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,14 +40,16 @@ class SmaraActivity : Activity() {
         val exists = cursor.getInt(0) > 0
         cursor.close()
 
-        if (!exists) {
-          db.insert("Words", null, values)
-          vibrateShort()
-          Toast.makeText(this, "Saving: $receivedText", Toast.LENGTH_SHORT).show()
-        } else {
-          vibrateShort()
-          Toast.makeText(this, "Already saved: $receivedText", Toast.LENGTH_SHORT).show()
-        }
+       if (!exists) {
+             db.insert("Words", null, values)
+             vibrateSuccess()
+             playToneSaved()
+             Toast.makeText(this, "Saving: $receivedText", Toast.LENGTH_SHORT).show()
+      } else {
+            vibrateDuplicatePattern()
+            playToneDuplicate()
+            Toast.makeText(this, "Already saved: $receivedText", Toast.LENGTH_SHORT).show()
+      }
 
         db.close()
       } catch (e: Exception) {
@@ -56,9 +60,27 @@ class SmaraActivity : Activity() {
     finish()
   }
 
-  private fun vibrateShort() {
+  private fun playToneSaved() {
+  val toneGen = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+  toneGen.startTone(ToneGenerator.TONE_SUP_RADIO_ACK, 200)
+}
+
+  private fun playToneDuplicate() {
+    val toneGen = ToneGenerator(AudioManager.STREAM_NOTIFICATION, 100)
+    toneGen.startTone(ToneGenerator.TONE_PROP_NACK, 220)
+  }  
+
+
+  private fun vibrateSuccess() {
     val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
-    val effect = VibrationEffect.createOneShot(40, VibrationEffect.DEFAULT_AMPLITUDE)
+    val effect = VibrationEffect.createOneShot(30, VibrationEffect.DEFAULT_AMPLITUDE)
+    vibrator.vibrate(effect)
+  }
+
+  private fun vibrateDuplicatePattern() {
+    val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    val pattern = longArrayOf(0, 40, 60, 40) // wait 0ms, vibrate 40ms, pause 60ms, vibrate 40ms
+    val effect = VibrationEffect.createWaveform(pattern, -1) // -1 = don't repeat
     vibrator.vibrate(effect)
   }
 }
