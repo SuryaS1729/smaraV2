@@ -2,9 +2,12 @@ package expo.modules.smaranative
 
 import android.app.Activity
 import android.content.ContentValues
+import android.content.Context
 import android.content.Intent
 import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
+import android.os.VibrationEffect
+import android.os.Vibrator
 import android.widget.Toast
 
 class SmaraActivity : Activity() {
@@ -37,19 +40,25 @@ class SmaraActivity : Activity() {
 
         if (!exists) {
           db.insert("Words", null, values)
+          vibrateShort()
           Toast.makeText(this, "Saving: $receivedText", Toast.LENGTH_SHORT).show()
         } else {
+          vibrateShort()
           Toast.makeText(this, "Already saved: $receivedText", Toast.LENGTH_SHORT).show()
         }
 
         db.close()
-
-        
       } catch (e: Exception) {
         Toast.makeText(this, "Error saving: ${e.message}", Toast.LENGTH_LONG).show()
       }
     }
 
     finish()
+  }
+
+  private fun vibrateShort() {
+    val vibrator = getSystemService(Context.VIBRATOR_SERVICE) as Vibrator
+    val effect = VibrationEffect.createOneShot(40, VibrationEffect.DEFAULT_AMPLITUDE)
+    vibrator.vibrate(effect)
   }
 }
