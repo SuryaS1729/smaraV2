@@ -75,6 +75,10 @@ export default function App() {
           <Text style={{ paddingVertical: 10 }}>{item}</Text>
         )}
       />
+      <Button title="Clear All" onPress={async () => {
+  await db.execAsync("DELETE FROM Words");
+  await loadWords();
+}} />
     </View>
   );
 }

@@ -8,7 +8,8 @@
         <activity
             android:name="expo.modules.smaranative.SmaraActivity"
             android:exported="true"
-            android:label="Save to Smara" >
+            android:label="Save to Smara"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
 

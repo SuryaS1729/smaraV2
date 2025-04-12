@@ -4,7 +4,8 @@
   <application>
     <activity android:name=".SmaraActivity"
         android:exported="true"
-        android:label="Save to Smara">
+        android:label="Save to Smara"
+        android:theme="@android:style/Theme.Translucent.NoTitleBar">
       <intent-filter>
         <action android:name="android.intent.action.PROCESS_TEXT" />
         <category android:name="android.intent.category.DEFAULT" />

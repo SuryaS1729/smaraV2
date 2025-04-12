@@ -15,8 +15,6 @@ class SmaraActivity : Activity() {
     if (receivedText != null) {
       try {
         val dbPath = "/data/user/0/com.surya7314.smaraV2/files/SQLite/smara.db"
-        Toast.makeText(this, "DB Path: $dbPath", Toast.LENGTH_LONG).show()
-
         val db = SQLiteDatabase.openOrCreateDatabase(dbPath, null)
 
         db.execSQL("""
@@ -32,20 +30,21 @@ class SmaraActivity : Activity() {
           put("createdAt", System.currentTimeMillis())
         }
 
-        val insertedRow = db.insert("Words", null, values)
-        Toast.makeText(this, "Inserted row ID: $insertedRow", Toast.LENGTH_SHORT).show()
-
-        // Debug: Read all words in DB
-        val cursor = db.rawQuery("SELECT word FROM Words", null)
-        val wordList = mutableListOf<String>()
-        while (cursor.moveToNext()) {
-          wordList.add(cursor.getString(cursor.getColumnIndexOrThrow("word")))
-        }
+        val cursor = db.rawQuery("SELECT COUNT(*) FROM Words WHERE word = ?", arrayOf(receivedText))
+        cursor.moveToFirst()
+        val exists = cursor.getInt(0) > 0
         cursor.close()
 
-        Toast.makeText(this, "All: ${wordList.joinToString()}", Toast.LENGTH_LONG).show()
+        if (!exists) {
+          db.insert("Words", null, values)
+          Toast.makeText(this, "Saving: $receivedText", Toast.LENGTH_SHORT).show()
+        } else {
+          Toast.makeText(this, "Already saved: $receivedText", Toast.LENGTH_SHORT).show()
+        }
 
         db.close()
+
+        
       } catch (e: Exception) {
         Toast.makeText(this, "Error saving: ${e.message}", Toast.LENGTH_LONG).show()
       }

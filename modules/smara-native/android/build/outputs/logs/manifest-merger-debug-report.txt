@@ -1,36 +1,38 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:1:1-15:12
-INJECTED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:1:1-15:12
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:1:1-16:12
+INJECTED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:1:1-16:12
 	package
 		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:2:3-37
 		INJECTED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml
 	xmlns:android
 		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:1:11-69
 application
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:4:3-14:17
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:4:3-15:17
 activity#expo.modules.smaranative.SmaraActivity
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:5:5-13:16
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:5:5-14:16
 	android:label
 		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:7:9-38
 	android:exported
 		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:6:9-32
+	android:theme
+		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:8:9-68
 	android:name
 		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:5:15-44
 intent-filter#action:name:android.intent.action.PROCESS_TEXT+category:name:android.intent.category.DEFAULT+data:mimeType:text/plain
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:8:7-12:23
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:9:7-13:23
 action#android.intent.action.PROCESS_TEXT
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:9:9-69
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:10:9-69
 	android:name
-		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:9:17-66
+		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:10:17-66
 category#android.intent.category.DEFAULT
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:10:9-68
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:11:9-68
 	android:name
-		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:10:19-65
+		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:11:19-65
 data
-ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:11:9-47
+ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:12:9-47
 	android:mimeType
-		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:11:15-44
+		ADDED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml:12:15-44
 uses-sdk
 INJECTED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/saaketsurya/Desktop/smaraV2/modules/smara-native/android/src/main/AndroidManifest.xml
